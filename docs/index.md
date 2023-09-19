@@ -15,7 +15,7 @@ hero:
   actions:
     - theme: brand
       text: 开始
-      link: /guide/
+      link: /guide/index.md
     - theme: alt
       text: 在 Gitee 上查看
       link: https://gitee.com/luo-sicheng/blog
