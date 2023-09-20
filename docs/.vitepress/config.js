@@ -15,17 +15,18 @@ export default {
       {
         text: "webpack工程化",
         items: [
-          { text: "webpack 工作原理", link: "/webpack/how-webpack-work" },
-          { text: "webpack loader原理解析", link: "/webpack/what-is-loader" },
+          { text: "工作原理", link: "/webpack/how-webpack-work" },
+          { text: "loader原理解析", link: "/webpack/what-is-loader" },
           {
-            text: "webpack loader开发示例",
+            text: "loader开发示例",
             link: "/webpack/how-to-develop-loader",
           },
-          { text: "webpack plugin原理解析", link: "/webpack/what-is-plugin" },
+          { text: "plugin原理解析", link: "/webpack/what-is-plugin" },
           {
-            text: "webpack plugin开发示例",
+            text: "plugin开发示例",
             link: "/webpack/how-to-develop-plugin",
           },
+          { text: "Tree-Shaking", link: "/webpack/tree-shaking" },
         ],
         collapsible: true,
       },
