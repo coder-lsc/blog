@@ -12,9 +12,9 @@ border: 1px 在部分 ios 机型上会展示异常，如半边 border 不展示
 
 优化点：代码冗长，且共同点明显，希望简洁代码
 
-loader 方案：在 less 文件中，扫描 /_ half-border _/ 注释，如命中则给当前父类添加伪元素
+loader 方案：在 less 文件中，扫描 /\* half-border \*/ 注释，如命中则给当前父类添加伪元素
 
-触发时机：匹配.less文件 并作用于less-loader之前
+触发时机：匹配.less 文件 并作用于 less-loader 之前
 
 ## 具体代码实现
 

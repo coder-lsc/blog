@@ -13,11 +13,12 @@ Tree-Shaking 是一种基于 ES Module 规范的 Dead Code Elimination 技术，
 因为 esm 规范下，import 语句必须在顶层，这样才能进行静态分析。cjs 的 require 可能在 if 语句中，无法进行静态分析。
 
 ## Shaking 核心流程
+
 1. 首先，Webpack 需要弄清楚每个模块分别有什么导出值，这一过程发生在 make 阶段
 
 2. 模块导出信息收集完毕后，Webpack 需要标记出各个模块的导出列表中，哪些导出值有被其它模块用到，哪些没有。这一过程发生在 Seal 阶段
 
-3. 生成代码时给没有用到的值上加上代码注释 **/* unused harmony export xxx */**
+3. 生成代码时给没有用到的值上加上代码注释 **/\* unused harmony export xxx \*/**
 
 4. 由 Terser 扫描注释，根据命中注释中的内容删除对应的变量
 
