@@ -14,8 +14,10 @@ export default {
     sidebar: [
       {
         text: "webpack工程化",
+        collapsible: true,
+        collapsed: false,
         items: [
-          { text: "工作原理", link: "/webpack/how-webpack-work" },
+          { text: "webpack工作原理", link: "/webpack/how-webpack-work" },
           { text: "loader原理解析", link: "/webpack/what-is-loader" },
           {
             text: "loader开发示例",
@@ -27,8 +29,8 @@ export default {
             link: "/webpack/how-to-develop-plugin",
           },
           { text: "Tree-Shaking", link: "/webpack/tree-shaking" },
+          { text: "webpack优化", link: "/webpack/optimization" },
         ],
-        collapsible: true,
       },
     ],
 
