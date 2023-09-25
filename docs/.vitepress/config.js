@@ -13,6 +13,18 @@ export default {
     nav: [{ text: "指南", link: "/guide/index" }],
     sidebar: [
       {
+        text: "react相关问题",
+        collapsible: true,
+        collapsed: false,
+        items: [
+          {
+            text: "为什么类组件需要手动绑定this",
+            link: "/react/why-bind-this",
+          },
+          { text: "什么是 immer", link: "/react/what-is-immer" },
+        ],
+      },
+      {
         text: "webpack工程化",
         collapsible: true,
         collapsed: false,
