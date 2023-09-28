@@ -26,6 +26,7 @@ export default {
             text: "keep-alive在react中的实现",
             link: "/react/how-to-keep-alive",
           },
+          { text: "时间切片", link: "/react/time-split" },
         ],
       },
       {
