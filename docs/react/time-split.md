@@ -72,7 +72,7 @@ if (typeof localSetImmediate === "function") {
 
 ## 为什么不用 requestAnimationFrame
 
-**Event Loop 中的执行顺序：**
+**Event Loop 中的执行顺序（一般情况）：**
 同步任务 > 微任务 > requestAnimationFrame > DOM 渲染 > 宏任务
 
 ```js
@@ -109,7 +109,8 @@ MDN：window.requestAnimationFrame() 告诉浏览器——你希望执行一个�
 严格意义上来说，raf 并不是一个宏任务，因为：
 
 - 执行时机和宏任务完全不一致；（raf 在渲染前，宏任务在渲染后）
-- raf 任务队列被执行的时候，会将其此刻队列中所有的任务都执行完；(如图，raf1 和 raf2 在同一个任务中执行，raf1 和 raf2 和重绘重排渲染形成了一个宏任务；并且作为一个长任务阻塞了渲染)
+- raf 任务队列被执行的时候，会将其此刻 raf 队列中所有的 raf 回调都执行完；(如图 1，raf1 和 raf2 在同一个任务中执行)
+- 如图 2，raf 和重绘重排提交共同组成了一个 task
 
 ![An image](/raf1.jpeg)
 
@@ -136,4 +137,87 @@ MDN：window.requestAnimationFrame() 告诉浏览器——你希望执行一个�
     }
   });
 </script>
+```
+
+### 为什么说 raf 不稳定
+
+raf 真正的回调时机是在浏览器进行重绘渲染的时候，而宏任务如果执行很快，两个宏任务在一帧内执行完成，第一个宏任务结束时是不会触发渲染的，不渲染也就意味着两次宏任务却只触发了一次 raf。
+示例：
+
+1. 当两次 setTimeout 没设置间隔，在一帧内完成。
+
+```js
+setTimeout(() => {
+  box1.style.backgroundColor = "black";
+  setTimeout(() => {
+    box1.style.backgroundColor = "yellow";
+  });
+});
+```
+
+如图，没有黑色的一帧（但不是必现）
+
+![An image](/raf3.jpeg)
+
+2. 当给 setTimeout 设置时间间隔，则必在至少两帧进行
+
+```js
+setTimeout(() => {
+  box1.style.backgroundColor = "black";
+  setTimeout(() => {
+    box1.style.backgroundColor = "yellow";
+  }, 18);
+});
+```
+
+![An image](/raf4.jpeg)
+
+## 代码
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 200px;
+        height: 200px;
+      }
+      .green {
+        background-color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="box1" class="box green">box1</div>
+    <script>
+      // requestAnimationFrame(function raf() {
+      //   console.log("raf");
+      //   for (let i = 0; i <= 100000000; i++) {
+      //     if (i === 10000) {
+      //       console.log("raf end");
+      //     }
+      //   }
+      // });
+      // requestAnimationFrame(function raf2() {
+      //   console.log("raf2");
+      //   for (let i = 0; i <= 100000000; i++) {
+      //     if (i === 10000) {
+      //       console.log("raf2 end");
+      //     }
+      //   }
+      // });
+      setTimeout(() => {
+        box1.style.backgroundColor = "black";
+        setTimeout(() => {
+          box1.style.backgroundColor = "yellow";
+        }, 18);
+      });
+    </script>
+  </body>
+</html>
 ```
