@@ -13,6 +13,21 @@ export default {
     nav: [{ text: "指南", link: "/guide/index" }],
     sidebar: [
       {
+        text: "计算机网络",
+        collapsible: true,
+        collapsed: false,
+        items: [
+          {
+            text: "http 状态码 301、302、303、307、308 的区别",
+            link: "/network/30x.md",
+          },
+          { text: "浏览器输入url回车", link: "/network/url-entry.md" },
+          { text: "浏览器强缓存&协商缓存", link: "/network/browser-cache.md" },
+          { text: "TCP三次握手", link: "/network/TCP三次握手.md" },
+          { text: "队头阻塞", link: "/network/head-of-line.md" },
+        ],
+      },
+      {
         text: "react相关问题",
         collapsible: true,
         collapsed: false,

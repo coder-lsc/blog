@@ -70,7 +70,13 @@ if (typeof localSetImmediate === "function") {
 
 另外，也没有选择使用 requestAnimationFrame，是因为它的机制比较特别，是在更新页面前执行，但更新页面的时机并没有规定，执行时机并不稳定。
 
+## 为什么不用微任务
+
+微任务将在页面更新前全部执行完，所以达不到「将主线程还给浏览器」的目的。
+
 ## 为什么不用 requestAnimationFrame
+
+### requestAnimationFrame 不是宏任务也不是微任务
 
 **Event Loop 中的执行顺序（一般情况）：**
 同步任务 > 微任务 > requestAnimationFrame > DOM 渲染 > 宏任务
@@ -171,6 +177,12 @@ setTimeout(() => {
 ```
 
 ![An image](/raf4.jpeg)
+
+不稳定的另一个角度：
+
+如果上次任务调度不是 raf 触发的，将导致在当前帧更新前会进行两次任务调度
+
+页面更新的时间不确定，如果浏览器间隔了 10ms 才更新页面，那么有 10ms 就浪费了。主线程有了空闲可以频繁去调用宏任务，但不会频繁刷新渲染页面
 
 ## 代码
 
