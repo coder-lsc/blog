@@ -24,6 +24,7 @@ export default {
           { text: "浏览器输入url回车", link: "/network/url-entry.md" },
           { text: "浏览器强缓存&协商缓存", link: "/network/browser-cache.md" },
           { text: "TCP三次握手", link: "/network/TCP三次握手.md" },
+          { text: "HTTPS握手", link: "/network/HTTPS握手.md" },
           { text: "队头阻塞", link: "/network/head-of-line.md" },
         ],
       },
