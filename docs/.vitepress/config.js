@@ -1,7 +1,7 @@
 export default {
   // ...
   base: "/blog/",
-  head: [["link", { rel: "icon", href: "/favicon.ico" }]], // 添加网站图标
+  head: [["link", { rel: "icon", href: "/blog/favicon.ico" }]], // 添加网站图标
   themeConfig: {
     siteTitle: "前端技术", // 可以设为false
     logo: "/favicon.ico",
