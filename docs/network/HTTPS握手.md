@@ -2,7 +2,7 @@
 layout: doc
 ---
 
-# HTTPS 握手
+# HTTPS 握手 (TLS)
 
 ![An image](/tls.jpg)
 
