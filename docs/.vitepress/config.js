@@ -38,7 +38,7 @@ export default {
             text: "为什么类组件需要手动绑定this",
             link: "/react/why-bind-this",
           },
-          { text: "什么是 immer", link: "/react/what-is-immer" },
+          { text: "immer", link: "/react/immer" },
           {
             text: "keep-alive在react中的实现",
             link: "/react/how-to-keep-alive",
