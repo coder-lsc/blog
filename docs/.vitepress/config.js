@@ -66,6 +66,15 @@ export default {
           { text: "webpack优化", link: "/webpack/optimization" },
         ],
       },
+      {
+        text: "JavaScript基础",
+        collapsible: false,
+        collapsed: false,
+        items: [
+          { text: "手写题合集", link: "/jsCommon/手写题合集" },
+          { text: "原型链", link: "/jsCommon/原型链" },
+        ],
+      },
     ],
 
     // socialLinks: [{ icon: "github", link: "https://gitee.com/" }],
