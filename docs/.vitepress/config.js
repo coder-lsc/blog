@@ -73,6 +73,7 @@ export default {
         items: [
           { text: "手写题合集", link: "/jsCommon/手写题合集" },
           { text: "原型链", link: "/jsCommon/原型链" },
+          { text: "浮点数精度问题", link: "/jsCommon/floatNumber" },
         ],
       },
     ],
