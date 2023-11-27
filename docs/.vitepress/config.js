@@ -67,6 +67,14 @@ export default {
         ],
       },
       {
+        text: "puppeteer踩坑记录",
+        collapsible: false,
+        collapsed: false,
+        items: [
+          { text: "复用登录态", link: "/puppeteer/link" },
+        ],
+      },
+      {
         text: "JavaScript基础",
         collapsible: false,
         collapsed: false,
