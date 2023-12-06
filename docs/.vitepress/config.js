@@ -72,6 +72,7 @@ export default {
         collapsed: false,
         items: [
           { text: "复用登录态", link: "/puppeteer/link" },
+          { text: "electron打包chrome", link: "/puppeteer/build-in-electron" },
         ],
       },
       {
