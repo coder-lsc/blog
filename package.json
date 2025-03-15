@@ -4,10 +4,10 @@
   "description": "#### Description 前端博客 用于学习 共勉",
   "main": "index.js",
   "scripts": {
-    "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
-    "docs:serve": "vitepress serve docs",
-    "site": "rm -rf public && mkdir public && cp -rf docs/.vitepress/dist/* public"
+    "docs:dev": "vitepress dev src",
+    "docs:build": "vitepress build src",
+    "docs:serve": "vitepress serve src",
+    "site": "rm -rf public && mkdir docs && cp -rf src/.vitepress/dist/* docs"
   },
   "repository": {
     "type": "git",
